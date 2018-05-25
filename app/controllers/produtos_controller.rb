@@ -10,7 +10,7 @@ class ProdutosController < ApplicationController
       # :produto é o mesmo que "produto", só que sem gerar string na memória
       # permit serve pra permitir qualquer coisa que vier de ser pega
       # os parâmetros depois de permit são os únicos atributos de Produto que ele aceitará
-      valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade
+      valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade, :departamento_id
       @produto = Produto.new valores
       if @produto.save
         flash[:notice] = "Produto salvo com sucesso"
@@ -22,6 +22,7 @@ class ProdutosController < ApplicationController
 
     def new
       @produto = Produto.new
+      @departamentos = Departamento.all
     end
 
     def destroy

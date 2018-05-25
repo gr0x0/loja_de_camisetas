@@ -1,4 +1,7 @@
 class Produto < ApplicationRecord
+
+  belongs_to :departamento
+
   validates :nome, length: { minimum: 5 }
   validates :descricao, presence: true
   validates :quantidade, numericality: { greater_than_or_equal_to: 1 }
