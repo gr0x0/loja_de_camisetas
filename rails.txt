@@ -1,0 +1,9 @@
+rails new <nome>                                                                #cria novo projeto rails
+  #Arquivo <projeto>/Gemfile mostra as gems que o projeto usa.
+  #Em <projeto>/app/views estão os views, incluindo os .html e index do site
+  #Em <projeto>/config/routes.rb pode-se configurar as rotas do site, dando
+    nomes às páginas e usando a linha get "<nome novo>" => "<nome do .html>"
+
+rails server                                                                    #levanta o server
+  #Server padrão do rails é o WEBrick.
+  #Para acessar a página, use localhost/3000 no navegador - 3000 é o padrão.

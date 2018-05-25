@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loja de camisetas</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <!-- nav_bar é a barra clicável superior do bootstrap. Ela pode ser customizada inserindo-se esse do-end -->
+  <%= nav_bar brand: "Loja de camisetas da Alura", brand_link: root_url do %>
+  <%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
+    <div class="form-group">
+      <%= text_field_tag :nome, @nome_a_buscar, class: "form-control" %>
+      <%= button_to "Buscar", nil, class: "btn btn-default" %>
+    </div>
+  <% end %>
+<% end %>
+
+  <div class="container">
+  <!-- É aqui que o rails cola toda e qualquer página chamada, e portanto qualquer coisa definida aqui nesse arquivo
+        afetará todas as páginas do site -->
+    <%= yield %>
+  </div
+</html>

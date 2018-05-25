@@ -1,0 +1,39 @@
+<!--
+      essa parte inicial serve para mostrar para o usuário a mensagem de sucesso após adicionar um produto assim que
+      ele voltar para essa página.
+      esse flash é usado para manter a variável viva por mais de 1 interação com o servidor, e ele é necessário uma
+      vez que a variável é criada na primeira interação, e no retorno uma nova index é chamada.
+-->
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
+
+<!-- table é a tabela do bootstrap, já formatadinha -->
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "produto", collection: @produtos_por_nome %>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "produto", collection: @produtos_por_preco %>
+  </tbody>
+</table>
+
+<%= link_to "Criar novo produto", new_produto_path %>
+
